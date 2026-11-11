@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b4db8">
+  <title>TilPro — тіл үйрену платформасы</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="TilPro басты бет">
+        <span class="brand-mark">T</span><span>Til<span class="brand-light">Pro</span></span>
+      </a>
+      <div class="side-caption">МӘЗІР</div>
+      <nav class="nav-list" aria-label="Негізгі мәзір">
+        <button class="nav-item active" data-page="home"><span>⌂</span> Басты бет</button>
+        <button class="nav-item" data-page="lesson"><span>▤</span> Оқулық</button>
+        <button class="nav-item" data-page="test"><span>✓</span> Тест</button>
+        <button class="nav-item" data-page="results"><span>▥</span> Нәтижелер</button>
+        <button class="nav-item" data-page="dictionary"><span>▦</span> Сөздік</button>
+        <button class="nav-item" data-page="account"><span>◉</span> Аккаунт</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="mini-avatar">Қ</div><div><b>Қонақ режимі</b><small>Прогресс осы браузерде сақталады</small></div></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Мәзір">☰</button>
+        <div><div class="eyebrow">ТІЛ ҮЙРЕНУ ПЛАТФОРМАСЫ</div><div class="top-title" id="pageTitle">Басты бет</div></div>
+        <div class="top-actions"><button class="theme-btn" id="themeToggle" type="button">◐ Қара-көк режим</button><span class="status-dot"></span><span>Қонақ</span></div>
+      </header>
+
+      <section class="page active" id="page-home">
+        <div class="welcome-card">
+          <div class="welcome-copy"><span class="pill">TILPRO • ЖАҢА НҰСҚА</span><h1>Жаңа тілді<br><em>бүгіннен</em> баста!</h1><p>Күн сайын аз-аздан үйрен. Сөздік қорыңды көбейтіп, біліміңді тест арқылы тексер.</p><button class="primary-btn" data-go="lesson">Оқуды бастау <span>→</span></button></div>
+          <div class="welcome-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="globe">文</div><span class="float-tag tag-one">你好</span><span class="float-tag tag-two">Hello!</span><span class="float-tag tag-three">Сәлем!</span></div>
+        </div>
+        <div class="section-heading"><div><div class="eyebrow">ӨЗ БАҒЫТЫҢДЫ ТАҢДА</div><h2>Үйренетін тілдер</h2></div><span class="muted">4 тіл қолжетімді</span></div>
+        <div class="language-grid" id="languageGrid"></div>
+        <div class="section-heading compact"><div><div class="eyebrow">ЖАЛПЫ ҮЛГЕРІМ</div><h2>Оқу көрсеткіштері</h2></div></div>
+        <div class="stats-grid"><div class="stat-card"><span class="stat-icon">▦</span><div class="stat-value" id="statWords">0</div><div class="stat-label">Қаралған сөз</div></div><div class="stat-card"><span class="stat-icon">✓</span><div class="stat-value" id="statTests">0</div><div class="stat-label">Аяқталған тест</div></div><div class="stat-card"><span class="stat-icon">★</span><div class="stat-value" id="statBest">—</div><div class="stat-label">Ең жақсы нәтиже</div></div></div>
+      </section>
+
+      <section class="page" id="page-lesson"><div class="section-heading"><div><div class="eyebrow">ҮЙРЕНУ</div><h1>Оқулық</h1><p class="muted">Тілді таңдап, сөздерді оқып үйрен.</p></div></div><div class="toolbar"><select id="lessonLanguage" aria-label="Оқулық тілі"></select><span class="muted" id="lessonCount"></span></div><div class="word-grid" id="lessonWords"></div></section>
+      <section class="page" id="page-dictionary"><div class="section-heading"><div><div class="eyebrow">СӨЗ ҚОРЫ</div><h1>Сөздік</h1><p class="muted">Сөздерді іздеп, дыбысталуын тыңда.</p></div></div><div class="toolbar"><select id="dictionaryLanguage" aria-label="Сөздік тілі"></select><input id="wordSearch" type="search" placeholder="Сөзді іздеу…" aria-label="Сөзді іздеу"></div><div class="word-grid" id="dictionaryWords"></div></section>
+      <section class="page" id="page-test"><div class="section-heading"><div><div class="eyebrow">БІЛІМІҢДІ ТЕКСЕР</div><h1>Тест</h1><p class="muted">Әр тестте 20 сұрақ болады. Қазіргі жинақта бастапқы 50 сөз бар.</p></div></div><div class="test-panel" id="testPanel"><div class="toolbar"><select id="testLanguage" aria-label="Тест тілі"></select><button class="primary-btn" id="startTest">Тестті бастау →</button></div><p class="muted">Тілді таңда да, тестті баста. Тест 20 сұрақтан тұрады.</p></div></section>
+      <section class="page" id="page-results"><div class="section-heading"><div><div class="eyebrow">ҮЛГЕРІМ</div><h1>Нәтижелер</h1><p class="muted">Осы браузерде сақталған тест нәтижелері.</p></div></div><div id="resultsList" class="results-list"></div></section>
+      <section class="page" id="page-account"><div class="section-heading"><div><div class="eyebrow">ПРОФИЛЬ</div><h1>Аккаунт</h1></div></div><div class="account-card"><div class="account-avatar">Қ</div><div><h2>Қонақ қолданушы</h2><p class="muted">Тіркелусіз оқу режимі</p></div><span class="guest-label">GUEST</span></div><div class="notice"><b>Деректерді сақтау</b><p>Оқу прогресі мен нәтижелер осы құрылғыдағы браузерде сақталады. Браузер деректерін тазаласаң, олар өшуі мүмкін.</p></div><button class="secondary-btn" id="resetProgress">Прогресті тазалау</button></section>
+      <footer>© 2026 TilPro <span>Тіл үйрену — күнделікті қадам.</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data/words.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
